@@ -8,6 +8,11 @@ os:
 
 before_install:
 - sudo apt-get update -qq
-- sudo apt-get install -qq mysql-client-core-5.7
+- sudo apt-get install -qq mysql-server
+- sudo apt-get install -qq mysql-client
+- mysql -u root -e 'create database omx;'
+- mysql -u root -e 'grant all privileges on omx.* to molgenis@localhost identified by "molgenis";'
+- mysql -u root -e 'flush privileges;'
 - mkdir -p ~/.molgenis/omx/
 - echo -e "db_user=molgenis\ndb_password=molgenis\ndb_uri=jdbc:mysql://localhost/omx\nadmin.password=admin\nuser.password=admin" > ~/.molgenis/omx/molgenis-server.properties
+
