@@ -1,0 +1,13 @@
+language: java
+jdk:
+ - openjdk8
+ - oraclejdk8
+
+os:
+- linux
+
+before_install:
+- sudo apt-get update -qq
+- sudo apt-get install -qq mysql-client-core-5.7
+- mkdir -p ~/.molgenis/omx/
+- echo -e "db_user=molgenis\ndb_password=molgenis\ndb_uri=jdbc:mysql://localhost/omx\nadmin.password=admin\nuser.password=admin" > ~/.molgenis/omx/molgenis-server.properties
