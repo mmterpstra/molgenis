@@ -14,4 +14,5 @@ before_install:
 - mysql -u root -e 'flush privileges;'
 - mkdir -p ~/.molgenis/omx/
 - echo -e "db_user=molgenis\ndb_password=molgenis\ndb_uri=jdbc:mysql://localhost/omx\nadmin.password=admin\nuser.password=admin" > ~/.molgenis/omx/molgenis-server.properties
-
+- mkdir ~/.m2/
+- wget https://molgenis26.gcc.rug.nl/downloads/uk.zip && (cd ~/.m2/ && unzip $OLDPWD/uk.zip)
